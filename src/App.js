@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
 import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+ 
+export default function PaginaInicial(){
+    const [ numeroAleatorio, setNumeroAleatorio ] = useState(1);
+ 
+    function gerarNumero(){
+        const novoNumero = Math.floor(Math.random() * (100-1) + 1);
+        setNumeroAleatorio(novoNumero);
+    }
+ 
+    return(
+        <div className="conteudo-centralizado">
+            <h3>Número aleatório</h3>
+            <h1>{numeroAleatorio}</h1>
+        
+ 
+            <div className="area-botao">
+                <label>
+                    Clique no botão abaixo para gerar um número aleatório...
+                </label>
+ 
+                <button onClick={gerarNumero}>
+                    Gerar número
+                </button>
+            </div>
+        </div>
+    );
 }
-
-export default App;
